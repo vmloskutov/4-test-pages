@@ -1,0 +1,1035 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./scss/variables.scss";
+@import './scss/base.scss';
+
+@import "~bootstrap/scss/bootstrap";
+@import "./scss/variables.scss";
+@import './scss/base.scss';
+@import './scss/typography.scss';
+
+@import "~bootstrap/scss/bootstrap";
+@import "./scss/variables.scss";
+@import './scss/base.scss';
+$scpacer: 24px;
+
+main {
+  margin-bottom: 300px;
+}
+
+.row-label {
+  margin-top: 73px;
+  color: $ink;
+  .label {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+  .device {
+    color: $darkGray;
+    font-size: 16px;
+    line-height: 1.5;
+    .laptop {
+      margin-right: 33px;
+    }
+    .mobile {
+      padding-bottom: 13px;
+    }
+    .current {
+      color: $ink;
+      border-bottom: 2px solid $main;
+    }
+  }
+}
+
+.selector {
+    margin-top: -2px;
+}
+
+.ElChoise {
+  hr {
+    height: 1px;
+    background-color: $silver;
+  }
+}
+
+
+@media (max-width: 993px) {
+  .checkbox{
+    margin-top: 24px;
+  }
+  .radiobutton{
+    margin-top: 24px;
+  }
+  .label-selectors {
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+  .checkbox{
+    margin-top: 48px;
+  }
+  .radiobutton{
+    margin-top: 48px;
+  }
+  .row {
+    margin-top: 24px;
+  }
+}
+.main-content {
+  margin-top: 64px;
+  .checkbox-group {
+     font-size: 14px;
+     line-height: 1.43;
+  }
+
+  .checkbox-group {
+    display: block;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 23px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default checkbox */
+  .checkbox-group input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border-radius: 4px;
+    border: solid 1px $silver;
+    background-color: $yourHighness;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .checkbox-group:hover input ~ .checkmark {
+    background-color: $white;
+    border: solid 1px $main;
+  }
+  .checkbox-group:hover {
+    color: $main;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .checkbox-group input:checked ~ .checkmark {
+    //background-color: $main;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .checkbox-group input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .checkbox-group .checkmark:after {
+    background-repeat: no-repeat;
+    left:-1px;;
+    top:-1px;
+    width: 25px;
+    height: 25px;
+    background-image: url(img/icons/on@3x.png);
+    background-size: contain;
+  }
+}
+
+.disabled {
+  color: $darkGray !important;
+  span {
+    background-color: $silver !important;
+  }
+  .checkmark:after {
+    background-image: url(img/icons/disabled@3x.png) !important;
+  }
+  .checkmark {
+    border-color: $silver !important;
+  }
+  .radiomark {
+    border-color: $silver !important;
+  }
+}
+
+/* The container */
+.radio-group {
+  font-size: 14px;
+  line-height: 1.43;
+  color:$ink;
+  display: block;
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 23px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-group input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radiomark {
+  border: solid 1px $navText;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: $yourHighness;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-group:hover input ~ .radiomark {
+  background-color: $white;
+  border-color: $main;
+}
+
+.radio-group:hover {
+  color: $main;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-group input:checked ~ .radiomark {
+  background-color: $main;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-group input:checked ~ .radiomark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-group .radiomark:after {
+	width: 8px;
+	height: 8px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+	border-radius: 50%;
+	background: white;
+}
+
+.row {
+  margin-top: 50px;
+}
+
+.wrapper {
+  margin-bottom: 60px;
+}
+/*Базовая обертка*/
+.droplink {
+  hr {
+    margin: 9px 12px 0 12px;
+    padding: 0;
+    height: 1px;
+    border: 0;
+  }
+  .arrow-down {
+    transform: rotate(-90deg);
+    margin-right: 12px;
+  }
+
+}
+/*Сбросим отступы*/
+.droplink ul {
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 7, 123, 0.04), 0 8px 20px 0 rgba(0, 0, 0, 0.06);
+  }
+/*стиль кнопки*/
+.dropdown-button {
+  width: 100%;
+  border-radius: 4px;
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 rgba(0, 7, 123, 0.04), 0 8px 20px 0 rgba(0, 0, 0, 0.06);
+  display:inline-block;
+  color:$ink !important;
+  font-size:14px;
+  padding-top:10px;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  text-decoration:none;
+  cursor: pointer
+}
+/*кнопка при наведении*/
+.dropdown-button:hover {
+  //background-color: $yourHighness;
+}
+/*активное состояние кнопки*/
+//.socialbutton:active{position:relative;top:1px}
+.droplink li{
+  background-color: $white;
+  display:block
+}
+/*Стиль элемента списка*/
+.droplink li a{
+  padding-top: 10px;
+  padding-bottom: 1px;
+  padding-left: 12px;
+  display:block;
+  color:$ink;
+  text-decoration: none;
+  font-size:14px;
+  line-height: 1.43;
+}
+/*Стиль элемента при наведении*/
+.droplink li a:hover {
+  border-radius: 4px;
+  background-color: $yourHighness;
+  hr {
+    background-color: $yourHighness;
+  }
+}
+
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #3B4256;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.navbar-brand {
+  font-size: 14px;
+  line-height: 1.43;
+  justify-content: flex-start;
+}
+
+#navbarNavDropdown {
+  justify-content: flex-end;
+}
+
+.svg-nav {
+  margin-right: 8px;
+  height: 24px;
+}
+
+.svg-brand {
+  margin-right: 12px;
+}
+
+.nav-item {
+  margin-right: 24px;
+  line-height: 1.43;
+  font-size: 14px;
+}
+
+.navbar-dark .navbar-brand {
+  color: $navText;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: $navText;
+}
+
+.navbar {
+  padding:0;
+}
+
+.minIconBlock {
+  color: $ink;
+}
+
+h5 {
+  padding: 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+h6 {
+  padding: 0;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.minIcon {
+  margin-right: 16px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+ padding-right: 0;
+ padding-left: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0;
+}
+
+.more {
+  width: 22px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.second-header {
+  .nav-link {
+    color: $ink;
+    font-size: 16px;
+    font-weight: 500;
+
+  }
+}
+
+.bg-light {
+  background-color: $white !important;
+}
+
+.second-header {
+  hr {
+    margin-top: 0;
+    margin-bottom: 64px;
+    height: 1px;
+    background-color: $silver;
+  }
+}
+
+
+
+.breadcrumb {
+  background-color: $white;
+  padding: 0;
+  margin-bottom: 24px;
+  background-color: $white;
+  text-decoration: none;
+  a {
+    color: $darkGray;
+  }
+  .active {
+    color: $darkGray;
+  }
+}
+
+@media (max-width: 992px) {
+    hr {
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+
+    ul {
+      margin-top: 24px;
+      padding-inline-start: 0;
+    }
+}
+
+@media (min-width: 993px) {
+  .current {
+    padding-bottom: 10px;
+    border-bottom: 2px solid $main;
+  }
+}
+
+h3 {
+  color: $ink;
+  font-size: 48px;
+  line-height: 56px;
+  margin-bottom: 24px;
+}
+
+.v-divider{
+ border-right:1px solid $navText;
+}
+
+.row-1 {
+  ul {
+    a {
+        color: $ink;
+    }
+    line-height: 2;
+    list-style: none;
+  }
+}
+
+.openMinistryText {
+  font-size: 24px;
+  line-height: 32px;
+  color: $ink;
+}
+
+.row-2 {
+  ul {
+    list-style-type: disc;
+    padding-inline-start: 20px;
+    margin-top: 12px;
+    line-height: 45px;
+    font-size: 18px;
+  }
+}
+
+.targetText {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.gosuslugi {
+  height: 100%;
+  margin-top: 80px;
+  background-color: $yourHighness;
+}
+
+.section-label {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  font-size: 32px;
+  line-height: 1.25;
+  color: $ink;
+}
+
+.icon-right {
+  margin-left: 28px;
+}
+
+.gos-card {
+  height: 75%;
+  background-color: $white;
+  padding: 30px 32px 32px 32px;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 32px;
+  border-radius: 4px;
+  footer {
+    color:$darkGray;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 16px;
+  }
+  a {
+    text-decoration: none;
+    color: $ink;
+  }
+}
+
+.stack {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 992px) {
+  .gosuslugi {
+    margin-top: 40px;
+  }
+  .stack {
+    padding-bottom: 40px;
+  }
+  .uslugi-label {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.gos-card:last-child {
+  padding-right: 0;
+}
+
+.gosuslugi-svg {
+  margin-right: 32px;
+}
+
+.out-link {
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+
+.popular-data {
+  @media (max-width: 992px) {
+    padding-bottom: 20px;
+  }
+  padding-bottom: 80px;
+  background-color: $white;
+  .rating{
+    position: absolute;
+    left: 24px;
+    top: 32px;
+    .rating-digits {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .down {
+      transform: rotate(-90deg);
+      fill: $darkGray;
+    }
+    .up {
+      transform: rotate(90deg);
+    }
+  }
+  .popular-block {
+    background-color: $yourHighness;
+    font-size: 18px;
+    line-height: 1.44;
+    border-radius: 4px;
+    color: $ink;
+    padding: 32px 64px 33px 72px;
+    margin-bottom: 24px;
+    .popular-block-label {
+      margin-bottom: 12px;
+      font-size: 18px;
+      line-height: 1.44;
+    }
+    .popular-block-text {
+      font-size: 14px;
+      line-height: 1.43;
+      color: $darkGray;
+      margin-bottom: 39px;
+    }
+    footer {
+      font-size: 14px;
+      line-height: 1.43;
+      color: $darkGray;
+    }
+  }
+
+  .popular-block-data {
+    color: $ink;
+    background-color: $white;
+    font-size: 14px;
+    line-height: 1.43;
+    border: solid 1px $silver;
+    padding: 8px 32px 32px 32px;
+    .block-data-label {
+      margin-bottom:8px;
+      margin-top:24px;
+    }
+    .data-digits {
+      font-size: 32px;
+      line-height: 1.25;
+    }
+  }
+
+  .download {
+    font-size: 14px;
+    line-height: 1.43;
+    color: $darkGray;
+    display: inline;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    .download-image {
+      margin-left: 12px;
+    }
+  }
+}
+
+.popular-buttons {
+  margin-top: 20px;
+  .left{
+    margin-right: 16px;
+  }
+  .right {
+    transform: rotate(180deg);
+  }
+}
+
+.schedule {
+  color:$ink;
+  padding-bottom: 80px;
+  hr {
+    margin-bottom: 0;
+  }
+  .section-label {
+    padding-bottom: 50px;
+  }
+  .avatar {
+  width: 76px;
+  height: 76px;
+  margin-right: 32px;
+  }
+  .person {
+    margin-bottom: 24px;
+  }
+  .name {
+      font-size: 18px;
+       line-height: 1.44;
+       font-weight: 500;
+       margin-bottom: 8px;
+  }
+  .position {
+        height: 24px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+  }
+  .days {
+      font-size: 14px;
+      line-height: 1.43;
+      color: $darkGray;
+      margin-bottom: 18px;
+  }
+  button {
+      line-height: 1.5;
+      height: 24px;
+      width: 187px;
+      height: 48px;
+      border-radius: 4px;
+      background-color: $yourHighness;
+  }
+}
+
+.footer {
+  color: $white;
+  background-color: $ink;
+  padding-top: 80px;
+  padding-bottom: 49px;
+  h5 {
+    font-size: 24px;
+    margin-top: 24px;
+    line-height: 1.33;
+  }
+  h6 {
+    color: $silver;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .footer-btn {
+    margin-top: 24px;
+    color: $yourHighness;
+    background-color: $ink;
+    width: 191px;
+    height: 40px;
+    border-radius: 4px;
+    border: solid 1px $darkGray;
+  }
+  .footer-label {
+    font-size: 20px;
+    line-height: 1.4;
+    color: $yourHighness;
+    margin-bottom: 20px;
+  }
+  .footer-ul {
+    font-size: 16px;
+    line-height: 2;
+    padding:0;
+    list-style: none;
+    color: $darkGray;
+  }
+  .row {
+    margin-bottom: 48px;
+  }
+  hr {
+    margin-bottom: 48px;
+    height: 0px;
+    background-color: $darkGray;
+  }
+  .license-social{
+
+    .license {
+      color: $navText;
+      font-size: 16px;
+      .img-license {
+        margin-right: 16px;
+      }
+    }
+    .social {
+      margin-left: 0;
+      padding: 0;
+      .social-icon {
+        margin-left: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .section-label {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+   .license {
+     margin-bottom: 20px;
+   }
+
+   .footer {
+     padding-top: 40px;
+     padding-bottom: 20px;
+     .col-lg-4 {
+       margin-bottom: 20px;
+     }
+     .row {
+       margin-bottom: 20px;
+     }
+   }
+}
+
+
+body {
+  margin-bottom: 100px;
+}
+.label {
+  margin-top: 50px;
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 300;
+}
+svg{
+  //width:100%;
+}
+path{
+  fill: $silver;
+  cursor: pointer;
+}
+.wrapper {
+  width: 240px;
+  height: 48px;
+  position: absolute;
+  margin-bottom: 60px;
+}
+/*Базовая обертка*/
+.droplink {
+  hr {
+    background-color: $silver;
+    margin: 9px 12px 0 12px;
+    padding: 0;
+    height: 1px;
+    border: 0;
+  }
+  .gamburger {
+    margin-right: 12px;
+  }
+
+}
+.map-drop {
+  .droplink ul {
+      overflow-y: scroll;
+      height: 300px;
+      padding: 0;
+      margin: 0;
+      box-shadow: 0 2px 4px 0 rgba(0, 7, 123, 0.04), 0 8px 20px 0 rgba(0, 0, 0, 0.06);
+    }
+}
+/*Сбросим отступы*/
+
+/*стиль кнопки*/
+.dropdown-button {
+  width: 100%;
+  border-radius: 4px;
+  background-color: $yourHighness;
+  box-shadow: 0 2px 4px 0 rgba(0, 7, 123, 0.04), 0 8px 20px 0 rgba(0, 0, 0, 0.06);
+  display:inline-block;
+  color:$ink !important;
+  font-size:14px;
+  padding-top:10px;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  text-decoration:none;
+  cursor: pointer
+}
+/*кнопка при наведении*/
+.dropdown-button:hover {
+  //background-color: $yourHighness;
+}
+/*активное состояние кнопки*/
+//.socialbutton:active{position:relative;top:1px}
+.droplink li{
+  background-color: $white;
+  display:block
+}
+/*Стиль элемента списка*/
+.droplink li a{
+  padding-top: 10px;
+  padding-bottom: 1px;
+  padding-left: 12px;
+  display:block;
+  color:$ink;
+  text-decoration: none;
+  font-size:14px;
+  line-height: 1.43;
+}
+/*Стиль элемента при наведении*/
+.droplink li a:hover {
+  border-radius: 4px;
+  background-color: $yourHighness;
+  hr {
+    background-color: $yourHighness;
+  }
+}
+/*Подпись к регионам*/
+.caption {
+  box-shadow: 0 2px 4px 0 rgba(0, 7, 123, 0.04), 0 8px 20px 0 rgba(0, 0, 0, 0.06);
+  padding-top: 25px;
+  padding-bottom: 22px;
+  font-size: 14px;
+  width: 250px;
+  height: 70px;
+  background-image: url(img/icons/Caption.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.heyo:hover{
+  fill: #CC2929;
+}
+.enabled{
+  fill: #21669E;
+  cursor: pointer;
+}
+.description {
+  box-shadow: 0 2px 4px 0 rgba(0, 7, 123, 0.04), 0 8px 20px 0 rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+  position: absolute;
+  font-size: 18px;
+  text-align: center;
+  background: white;
+  padding: 10px 15px;
+  line-height: 30px;
+  color: black;
+  border-radius: 5px;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+  &:after {
+
+    content: '';
+    position: absolute;
+    top: 49px;
+    left: 45%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid $white;
+  }
+}
+.regions {
+  //display: none;
+}
+
+.disabled {
+  color: $darkGray !important;
+  span {
+    background-color: $silver !important;
+  }
+  .checkmark:after {
+    background-image: url(img/icons/disabled@3x.png) !important;
+  }
+  .checkmark {
+    border-color: $silver !important;
+  }
+  .radiomark {
+    border-color: $silver !important;
+  }
+}
+
+/* The container */
+.radio-group {
+  font-size: 14px;
+  line-height: 1.43;
+  color:$ink;
+  display: block;
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 23px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-group input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radiomark {
+  border: solid 1px $navText;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: $yourHighness;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-group:hover input ~ .radiomark {
+  background-color: $white;
+  border-color: $main;
+}
+
+.radio-group:hover {
+  color: $main;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-group input:checked ~ .radiomark {
+  background-color: $main;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-group input:checked ~ .radiomark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-group .radiomark:after {
+	width: 8px;
+	height: 8px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+	border-radius: 50%;
+	background: white;
+}
+
+.federal {
+  display: none;
+}
