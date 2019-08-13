@@ -21149,7 +21149,7 @@ main {
   .row {
     margin-top: 24px; } }
 
-.main-content {
+.main-content, .suggestions-form {
   margin-top: 64px;
   /* Hide the browser's default checkbox */
   /* Create a custom checkbox */
@@ -21158,10 +21158,10 @@ main {
   /* Create the checkmark/indicator (hidden when not checked) */
   /* Show the checkmark when checked */
   /* Style the checkmark/indicator */ }
-  .main-content .checkbox-group {
+  .main-content .checkbox-group, .suggestions-form .checkbox-group {
     font-size: 14px;
     line-height: 1.43; }
-  .main-content .checkbox-group {
+  .main-content .checkbox-group, .suggestions-form .checkbox-group {
     display: block;
     position: relative;
     padding-left: 36px;
@@ -21172,13 +21172,13 @@ main {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
-  .main-content .checkbox-group input {
+  .main-content .checkbox-group input, .suggestions-form .checkbox-group input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0; }
-  .main-content .checkmark {
+  .main-content .checkmark, .suggestions-form .checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -21187,18 +21187,18 @@ main {
     border-radius: 4px;
     border: solid 1px #dde1e6;
     background-color: #f4f7fb; }
-  .main-content .checkbox-group:hover input ~ .checkmark {
+  .main-content .checkbox-group:hover input ~ .checkmark, .suggestions-form .checkbox-group:hover input ~ .checkmark {
     background-color: #ffffff;
     border: solid 1px #0c49cd; }
-  .main-content .checkbox-group:hover {
+  .main-content .checkbox-group:hover, .suggestions-form .checkbox-group:hover {
     color: #0c49cd; }
-  .main-content .checkmark:after {
+  .main-content .checkmark:after, .suggestions-form .checkmark:after {
     content: "";
     position: absolute;
     display: none; }
-  .main-content .checkbox-group input:checked ~ .checkmark:after {
+  .main-content .checkbox-group input:checked ~ .checkmark:after, .suggestions-form .checkbox-group input:checked ~ .checkmark:after {
     display: block; }
-  .main-content .checkbox-group .checkmark:after {
+  .main-content .checkbox-group .checkmark:after, .suggestions-form .checkbox-group .checkmark:after {
     background-repeat: no-repeat;
     left: -1px;
     top: -1px;
@@ -21911,3 +21911,45 @@ path {
 
 .federal {
   display: none; }
+
+.suggestions {
+  color: #3b4256; }
+  .suggestions .row {
+    padding: 0;
+    margin: 0; }
+  .suggestions .suggestions-label {
+    padding-top: 64px;
+    padding-bottom: 32px;
+    font-size: 32px;
+    line-height: 1.25; }
+  .suggestions .suggestions-form {
+    margin-top: 0;
+    background-color: #f4f7fb;
+    padding-top: 80px;
+    padding-bottom: 80px; }
+    .suggestions .suggestions-form form {
+      border-radius: 4px;
+      background-color: #ffffff;
+      padding-left: 32px;
+      padding-right: 32px;
+      padding-top: 32px;
+      padding-bottom: 32px; }
+      .suggestions .suggestions-form form .form-label {
+        margin-bottom: 32px;
+        font-size: 24px;
+        line-height: 1.33; }
+      .suggestions .suggestions-form form input {
+        height: 64px;
+        border-radius: 4px;
+        background-color: #f4f7fb;
+        margin-bottom: 24px; }
+      .suggestions .suggestions-form form .checkbox {
+        padding-top: 16px; }
+      .suggestions .suggestions-form form button {
+        align-items: center;
+        margin-left: 32px;
+        width: 112px;
+        height: 48px;
+        border-radius: 4px;
+        background-color: #0c49cd;
+        color: #ffffff; }

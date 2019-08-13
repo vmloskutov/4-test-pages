@@ -75,7 +75,7 @@ main {
     margin-top: 24px;
   }
 }
-.main-content {
+.main-content, .suggestions-form {
   margin-top: 64px;
   .checkbox-group {
      font-size: 14px;
@@ -1032,4 +1032,56 @@ path{
 
 .federal {
   display: none;
+}
+
+.suggestions {
+  color: $ink;
+  .row {
+    padding: 0;
+    margin: 0;
+  }
+  .suggestions-label {
+    padding-top: 64px;
+    padding-bottom: 32px;
+    font-size: 32px;
+    line-height: 1.25;
+  }
+  .suggestions-form {
+    margin-top: 0;
+    background-color: $yourHighness;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    form {
+      border-radius: 4px;
+      background-color: $white;
+      padding-left: 32px;
+      padding-right: 32px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+      .form-label {
+        margin-bottom: 32px;
+        font-size: 24px;
+        line-height: 1.33;
+      }
+      input {
+        height: 64px;
+        border-radius: 4px;
+        background-color: $yourHighness;
+        margin-bottom: 24px;
+      }
+      .checkbox {
+        padding-top: 16px;
+      }
+      button {
+        align-items: center;
+        margin-left: 32px;
+        width: 112px;
+        height: 48px;
+        border-radius: 4px;
+        background-color: $main;
+        color: $white;
+      }
+    }
+  }
 }
