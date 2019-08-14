@@ -202,6 +202,4 @@ function mouseFollow(arr) {
   };
 }
 
-
-
-// Элементы выбора
+//Форма

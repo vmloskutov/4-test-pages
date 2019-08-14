@@ -21934,15 +21934,36 @@ path {
       padding-right: 32px;
       padding-top: 32px;
       padding-bottom: 32px; }
+      @media (max-width: 992px) {
+        .suggestions .suggestions-form form .name {
+          padding-right: 0; }
+        .suggestions .suggestions-form form .email {
+          padding-left: 0; } }
       .suggestions .suggestions-form form .form-label {
         margin-bottom: 32px;
         font-size: 24px;
         line-height: 1.33; }
       .suggestions .suggestions-form form input {
+        color: #3b4256;
+        padding: 20px 24px 20px 16px;
+        border: 0;
+        font-size: 16px;
+        line-height: 1.5;
         height: 64px;
         border-radius: 4px;
         background-color: #f4f7fb;
         margin-bottom: 24px; }
+      .suggestions .suggestions-form form input::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #3b4256;
+        opacity: 1;
+        /* Firefox */ }
+      .suggestions .suggestions-form form input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #3b4256; }
+      .suggestions .suggestions-form form input::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: #3b4256; }
       .suggestions .suggestions-form form .checkbox {
         padding-top: 16px; }
       .suggestions .suggestions-form form button {
@@ -21953,3 +21974,37 @@ path {
         border-radius: 4px;
         background-color: #0c49cd;
         color: #ffffff; }
+      .suggestions .suggestions-form form .message {
+        padding: 20px 50px 20px 16px;
+        font-size: 16px;
+        line-height: 1.5;
+        border-radius: 4px;
+        background-color: #f4f7fb;
+        resize: none;
+        height: 136px;
+        border: 0;
+        placeholder: "Суть обращения"; }
+      .suggestions .suggestions-form form textarea::-webkit-input-placeholder {
+        color: #3b4256; }
+      .suggestions .suggestions-form form textarea:-moz-placeholder {
+        color: #3b4256; }
+      .suggestions .suggestions-form form .theme {
+        position: relative; }
+        .suggestions .suggestions-form form .theme input {
+          padding-top: 40px; }
+        .suggestions .suggestions-form form .theme .theme-label {
+          line-height: 1.43;
+          color: #848e99;
+          font-size: 14px;
+          position: absolute;
+          top: 10px;
+          left: 16px; }
+      .suggestions .suggestions-form form .rules {
+        padding-bottom: 2px;
+        border-bottom: 1px solid #0c49cd; }
+      .suggestions .suggestions-form form .form-arrow-up {
+        transform: rotate(90deg);
+        margin-right: 12px;
+        cursor: pointer; }
+      .suggestions .suggestions-form form .form-arrow-down {
+        transform: rotate(-90deg); }

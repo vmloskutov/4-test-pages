@@ -1053,6 +1053,15 @@ path{
     padding-bottom: 80px;
 
     form {
+
+      @media (max-width: 992px) {
+        .name {
+          padding-right: 0;
+        }
+        .email {
+          padding-left: 0;
+        }
+      }
       border-radius: 4px;
       background-color: $white;
       padding-left: 32px;
@@ -1065,15 +1074,35 @@ path{
         line-height: 1.33;
       }
       input {
+        color: $ink;
+        padding: 20px 24px 20px 16px;
+        border: 0;
+        font-size: 16px;
+        line-height: 1.5;
         height: 64px;
         border-radius: 4px;
         background-color: $yourHighness;
         margin-bottom: 24px;
+
+
+      }
+      input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $ink;
+        opacity: 1; /* Firefox */
+      }
+
+      input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $ink;
+      }
+
+      input::-ms-input-placeholder { /* Microsoft Edge */
+        color: $ink;
       }
       .checkbox {
         padding-top: 16px;
       }
       button {
+
         align-items: center;
         margin-left: 32px;
         width: 112px;
@@ -1081,6 +1110,46 @@ path{
         border-radius: 4px;
         background-color: $main;
         color: $white;
+      }
+      .message {
+        padding: 20px 50px 20px 16px;
+        font-size: 16px;
+        line-height: 1.5;
+        border-radius: 4px;
+        background-color: $yourHighness;
+        resize: none;
+        height: 136px;
+        border: 0;
+        placeholder: "Суть обращения";
+      }
+      textarea::-webkit-input-placeholder { color: $ink; }
+      textarea:-moz-placeholder { color: $ink; }
+
+      .theme {
+        position: relative;
+        input {
+          padding-top: 40px;
+        }
+        .theme-label {
+          line-height: 1.43;
+          color: $darkGray;
+          font-size: 14px;
+          position: absolute;
+          top: 10px;
+          left: 16px;
+        }
+      }
+      .rules {
+        padding-bottom: 2px;
+        border-bottom: 1px solid $main;
+      }
+      .form-arrow-up {
+          transform: rotate(90deg);
+          margin-right: 12px;
+          cursor: pointer;
+      }
+      .form-arrow-down {
+        transform: rotate(-90deg);
       }
     }
   }
