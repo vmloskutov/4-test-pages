@@ -2073,7 +2073,7 @@
     </div>
     <div class="suggestions-form">
       <div class="container">
-        <form action="">
+        <form name="suggestion" onSubmit="formValidation()">
           <div class="form-label d-flex justify-content-between">
             Замечания и предложения по набору данных
             <img class="form-arrow-up" onclick="formDown()" src="src/img/icons/down.svg" alt="">
@@ -2085,10 +2085,10 @@
             </div>
             <div class="row">
               <div class="col-lg-6 pl-0 name">
-                <input class="col-lg-12 " type="text" placeholder="Имя" required>
+                <input class="col-lg-12" name="name" type="text" placeholder="Имя" required>
               </div>
               <div class="col-lg-6 pr-0 email">
-                <input class="col-lg-12" type="email" placeholder="E-mail" required>
+                <input class="col-lg-12" name="email" type="email" placeholder="E-mail" required>
               </div>
             </div>
             <textarea placeholder="Суть обращения" class="col-lg-12 message" required></textarea>
@@ -2100,7 +2100,7 @@
                   </label>
               </div>
               <div class="col-lg-2">
-                <button>
+                <button type="submit">
                   Отправить
                 </button>
               </div>
@@ -2165,7 +2165,7 @@
       }
     }
   </script>
-  <script type="text/javascript" src="dist/bundle.js"></script>
+
   <script type="text/javascript">
     function down()
     {
@@ -2178,6 +2178,13 @@
         a.style.display = 'none';
         }
     };
+    function formValidation() {
+      console.log("!!!")
+      let name = document.suggestion.name;
+      let email = document.suggestion.email;
+      console.log(name);
+    }
   </script>
+  <script type="text/javascript" src="dist/bundle.js"></script>
 </body>
 </html>

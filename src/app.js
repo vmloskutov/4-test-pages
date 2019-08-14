@@ -201,5 +201,3 @@ function mouseFollow(arr) {
     });
   };
 }
-
-//Форма
