@@ -201,3 +201,105 @@ function mouseFollow(arr) {
     });
   };
 }
+
+
+
+
+
+let laptop = document.querySelector(".laptop");
+let mobile = document.querySelector(".mobile");
+window.addEventListener("load", function() {
+    if (window.screen.width <= 933) {
+      laptop.classList.remove("current");
+      mobile.classList.add("current");
+    } else {
+      laptop.classList.add("current");
+      mobile.classList.remove("current");
+    }
+});
+window.addEventListener('resize', function(event){
+    if (window.screen.availWidth <= 933) {
+      console.log("!!!");
+      laptop.classList.remove("current");
+      mobile.classList.add("current");
+    } else {
+      laptop.classList.add("current");
+      mobile.classList.remove("current");
+    }
+});
+
+let dropdownButton = document.querySelector('.dropdown-punkt');
+dropdownButton.onclick = () => {
+    let a = document.getElementById('dropdownEl');
+    let arrow = document.querySelector('.arrow-down');
+      if ( a.style.display == 'none' ) {
+        a.style.display = 'block'
+        arrow.style.transform = 'rotate(90deg)'
+      }
+      else
+        if ( a.style.display == 'block' ) {
+        a.style.display = 'none';
+        arrow.style.transform = 'rotate(-90deg)'
+        }
+};
+
+let formArrow = document.querySelector(".form-arrow-up");
+formArrow.onclick = () => {
+      formArrow.classList.toggle("form-arrow-down");
+      let restForm = document.querySelector(".rest-form");
+      let formLabel = document.querySelector(".form-label");
+      if (restForm.style.display === "none") {
+        restForm.style.display = "block";
+        formLabel.style.marginBottom = "32px";
+      } else {
+        restForm.style.display = "none";
+        formLabel.style.marginBottom = "0";
+      }
+}
+
+let dropdownButtonReg = document.querySelector('.dropdown-reg');
+dropdownButtonReg.onclick = () => {
+      let a = document.getElementById('dropdown');
+      if ( a.style.display == 'none' ) {
+        a.style.display = 'block'
+      }
+      else
+        if ( a.style.display == 'block' ) {
+        a.style.display = 'none';
+        }
+};
+
+function addingIcons(input, rule) {
+  input.addEventListener("change", () => {
+    let parent = input.parentNode;
+    let icon = document.querySelector(".approved-error");
+    if (rule(input.value)) {
+      input.style.border = "solid 1px #71bc90";
+      if (icon != null) {
+        icon.src = 'src/img/icons/approved.svg';
+      } else {
+        parent.insertAdjacentHTML('beforeend', "<img class='approved-error' src='src/img/icons/approved.svg' alt=''>" );
+      }
+    } else {
+      input.style.border = "solid 1px #e53935";
+      if (icon != null) {
+        icon.src = 'src/img/icons/error.svg';
+      } else {
+        parent.insertAdjacentHTML('beforeend', "<img class='approved-error' src='src/img/icons/error.svg' alt=''>" )
+      }
+    }
+  });
+}
+
+function onlyLetters(myString) {
+  return /^[a-zA-ZA-я ]+$/.test(myString);
+}
+
+function emailCheck(myString) {
+  return /^([a-z0-9_А-я\.-]+)@([a-z0-9_А-я\.-]+)\.([a-zА-я\.]{2,6})$/.test(myString);
+}
+
+let email = document.suggestion.email;
+let name = document.suggestion.name;
+addingIcons(name, onlyLetters);
+addingIcons(email, emailCheck);

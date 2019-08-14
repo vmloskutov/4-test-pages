@@ -21625,6 +21625,7 @@ h3 {
   .schedule .person {
     margin-bottom: 24px; }
   .schedule .name {
+    position: relative;
     font-size: 18px;
     line-height: 1.44;
     font-weight: 500;
@@ -21944,6 +21945,7 @@ path {
         font-size: 24px;
         line-height: 1.33; }
       .suggestions .suggestions-form form input {
+        outline: none;
         color: #3b4256;
         padding: 20px 24px 20px 16px;
         border: 0;
@@ -21953,6 +21955,8 @@ path {
         border-radius: 4px;
         background-color: #f4f7fb;
         margin-bottom: 24px; }
+        .suggestions .suggestions-form form input:focus {
+          border: 1px solid #62b0ff; }
       .suggestions .suggestions-form form input::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #3b4256;
@@ -21975,6 +21979,7 @@ path {
         background-color: #0c49cd;
         color: #ffffff; }
       .suggestions .suggestions-form form .message {
+        outline: none;
         padding: 20px 50px 20px 16px;
         font-size: 16px;
         line-height: 1.5;
@@ -21988,6 +21993,8 @@ path {
         color: #3b4256; }
       .suggestions .suggestions-form form textarea:-moz-placeholder {
         color: #3b4256; }
+      .suggestions .suggestions-form form textarea:focus {
+        border: 1px solid #62b0ff; }
       .suggestions .suggestions-form form .theme {
         position: relative; }
         .suggestions .suggestions-form form .theme input {
@@ -22008,3 +22015,9 @@ path {
         cursor: pointer; }
       .suggestions .suggestions-form form .form-arrow-down {
         transform: rotate(-90deg); }
+
+.approved-error {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: rotate(90deg); }

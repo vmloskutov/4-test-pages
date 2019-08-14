@@ -681,6 +681,7 @@ h3 {
     margin-bottom: 24px;
   }
   .name {
+    position: relative;
       font-size: 18px;
        line-height: 1.44;
        font-weight: 500;
@@ -1074,6 +1075,7 @@ path{
         line-height: 1.33;
       }
       input {
+        outline:none;
         color: $ink;
         padding: 20px 24px 20px 16px;
         border: 0;
@@ -1083,7 +1085,9 @@ path{
         border-radius: 4px;
         background-color: $yourHighness;
         margin-bottom: 24px;
-
+      &:focus {
+        border: 1px solid $active;
+      }
 
       }
       input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -1112,6 +1116,7 @@ path{
         color: $white;
       }
       .message {
+        outline:none;
         padding: 20px 50px 20px 16px;
         font-size: 16px;
         line-height: 1.5;
@@ -1124,7 +1129,9 @@ path{
       }
       textarea::-webkit-input-placeholder { color: $ink; }
       textarea:-moz-placeholder { color: $ink; }
-
+      textarea:focus {
+        border: 1px solid $active;
+      }
       .theme {
         position: relative;
         input {
@@ -1153,4 +1160,11 @@ path{
       }
     }
   }
+}
+
+.approved-error {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: rotate(90deg);
 }

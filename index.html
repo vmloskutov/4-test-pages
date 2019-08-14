@@ -27,7 +27,7 @@
     </div>
     <div class="wrapper map-drop">
       <div class="droplink">
-          <a class=" d-flex justify-content-between dropdown-button" onclick="down()"><div class="choise">Выбрать регион</div>
+          <a class=" d-flex justify-content-between dropdown-button dropdown-reg"><div class="choise">Выбрать регион</div>
           <img class="gamburger" src="src/img/icons/hamburger.svg" alt="">
           </a>
         <ul id="dropdown" style="display:none">
@@ -1665,7 +1665,7 @@
         <div class="col-lg-6 offset-lg-6">
           <div class="wrapper">
             <div class="droplink">
-                <a class=" d-flex justify-content-between dropdown-button" onclick="downEl()">Выпадающий список
+                <a class=" d-flex justify-content-between dropdown-button dropdown-punkt" >Выпадающий список
                 <img class="arrow-down " src="src/img/icons/down.svg" alt="">
                 </a>
               <ul id="dropdownEl" style="display:none">
@@ -2076,7 +2076,7 @@
         <form name="suggestion" onSubmit="formValidation()">
           <div class="form-label d-flex justify-content-between">
             Замечания и предложения по набору данных
-            <img class="form-arrow-up" onclick="formDown()" src="src/img/icons/down.svg" alt="">
+            <img class="form-arrow-up"  src="src/img/icons/down.svg" alt="">
           </div>
           <div class="rest-form">
             <div class="theme">
@@ -2111,80 +2111,6 @@
       </div>
     </div>
   </div>
-
-  <script src="https://d3js.org/d3.v4.min.js"></script>
-
-  <script type="text/javascript">
-  let laptop = document.querySelector(".laptop");
-  let mobile = document.querySelector(".mobile");
-    window.addEventListener("load", function(event) {
-      if (window.screen.width <= 933) {
-
-        laptop.classList.remove("current");
-        mobile.classList.add("current");
-      } else {
-        laptop.classList.add("current");
-        mobile.classList.remove("current");
-      }
-    });
-    window.addEventListener('resize', function(event){
-      if (window.screen.availWidth <= 933) {
-        console.log("!!!");
-        laptop.classList.remove("current");
-        mobile.classList.add("current");
-      } else {
-        laptop.classList.add("current");
-        mobile.classList.remove("current");
-      }
-    });
-    function downEl()
-    {
-      let a = document.getElementById('dropdownEl');
-      let arrow = document.querySelector('.arrow-down');
-      if ( a.style.display == 'none' ) {
-        a.style.display = 'block'
-        arrow.style.transform = 'rotate(90deg)'
-      }
-      else
-        if ( a.style.display == 'block' ) {
-        a.style.display = 'none';
-        arrow.style.transform = 'rotate(-90deg)'
-        }
-    };
-    function formDown(e) {
-      let formArrow = document.querySelector(".form-arrow-up");
-      formArrow.classList.toggle("form-arrow-down");
-      let restForm = document.querySelector(".rest-form");
-      let formLabel = document.querySelector(".form-label");
-      if (restForm.style.display === "none") {
-        restForm.style.display = "block";
-        formLabel.style.marginBottom = "32px";
-      } else {
-        restForm.style.display = "none";
-        formLabel.style.marginBottom = "0";
-      }
-    }
-  </script>
-
-  <script type="text/javascript">
-    function down()
-    {
-      let a = document.getElementById('dropdown');
-      if ( a.style.display == 'none' ) {
-        a.style.display = 'block'
-      }
-      else
-        if ( a.style.display == 'block' ) {
-        a.style.display = 'none';
-        }
-    };
-    function formValidation() {
-      console.log("!!!")
-      let name = document.suggestion.name;
-      let email = document.suggestion.email;
-      console.log(name);
-    }
-  </script>
   <script type="text/javascript" src="dist/bundle.js"></script>
 </body>
 </html>
