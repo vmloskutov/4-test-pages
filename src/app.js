@@ -272,7 +272,7 @@ dropdownButtonReg.onclick = () => {
 function addingIcons(input, rule) {
   input.addEventListener("change", () => {
     let parent = input.parentNode;
-    let icon = document.querySelector(".approved-error");
+    let icon = input.querySelector(".approved-error");
     if (rule(input.value)) {
       input.style.border = "solid 1px #71bc90";
       if (icon != null) {
