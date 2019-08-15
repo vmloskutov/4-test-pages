@@ -346,25 +346,35 @@ let formButton = document.querySelector(".form-button");
 let inputs = [[theme, notEmpty], [telephone, telNumCheck], [name, onlyLetters], [email, emailCheck], [message, notEmpty]];
 
 inputs.forEach(item => {
-  item[0].addEventListener("change", () => {
+  item[0].addEventListener("keyup", () => {
     let flag = true;
-    console.log(flag);
-    console.log(inputs);
-    for (let i = 0; i < inputs.length; i++) {
-      console.log("!!");
+    let temp = inputs.length;
+    for (let i = 0; i < temp; i++) {
       if (!lastCheck(inputs[i][0], inputs[i][1])) {
-        console.log("!!!");
         flag = false;
       }
-      console.log("!!!!");
-      console.log(flag);
-      if (flag === true && formCheckbox.checked) {
-        formButton.style.backgroundColor = "$main";
-      } else {
-        formButton.style.backgroundColor = "$silver";
-      }
+    }
+    if (flag === true && formCheckbox.checked) {
+      formButton.style.backgroundColor = "#0c49cd";
+    } else {
+      formButton.style.backgroundColor = "#dde1e6";
     }
   });
+});
+
+formCheckbox.addEventListener("change", () => {
+  let flag = true;
+  let temp = inputs.length;
+  for (let i = 0; i < temp; i++) {
+    if (!lastCheck(inputs[i][0], inputs[i][1])) {
+      flag = false;
+    }
+  }
+  if (flag === true && formCheckbox.checked) {
+    formButton.style.backgroundColor = "#0c49cd";
+  } else {
+    formButton.style.backgroundColor = "#dde1e6";
+  }
 });
 
 
