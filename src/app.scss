@@ -1139,9 +1139,6 @@ path{
       }
       .theme {
         position: relative;
-        input {
-          padding-top: 40px;
-        }
         .theme-label {
           line-height: 1.43;
           color: $darkGray;
@@ -1162,6 +1159,25 @@ path{
       }
       .form-arrow-down {
         transform: rotate(-90deg);
+      }
+      .placeholder {
+        display: none;
+        line-height: 1.43;
+        color: $darkGray;
+        font-size: 14px;
+        position: absolute;
+        top: 10px;
+        left: 16px;
+      }
+      .tel-number {
+        .placeholder {
+          left: 31px;
+        }
+      }
+      .email {
+        .placeholder {
+          left: 31px;
+        }
       }
     }
   }

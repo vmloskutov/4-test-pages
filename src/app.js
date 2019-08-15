@@ -377,7 +377,27 @@ formCheckbox.addEventListener("change", () => {
   }
 });
 
-
+let temp = inputs.length;
+for (let i = 0; i < temp-1; i++) {
+  let oldPlaceholder;
+  inputs[i][0].addEventListener("focus", () => {
+    let parent = inputs[i][0].parentNode;
+    let placeholder = parent.querySelector(".placeholder");
+    console.log(placeholder);
+    oldPlaceholder = inputs[i][0].getAttribute("placeholder");
+    inputs[i][0].setAttribute("placeholder", "");
+    placeholder.style.display = "block";
+    inputs[i][0].style.paddingTop = "40px";
+  });
+  inputs[i][0].addEventListener("blur", () => {
+    let parent = inputs[i][0].parentNode;
+    let placeholder = parent.querySelector(".placeholder");
+    console.log(placeholder);
+    inputs[i][0].setAttribute("placeholder", `${oldPlaceholder}`);
+    placeholder.style.display = "none";
+    inputs[i][0].style.paddingTop = "20px";
+  });
+};
 
 addingIcons(name, onlyLetters);
 addingIcons(email, emailCheck);

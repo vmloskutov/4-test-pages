@@ -22001,8 +22001,6 @@ path {
         border: 1px solid #62b0ff; }
       .suggestions .suggestions-form form .theme {
         position: relative; }
-        .suggestions .suggestions-form form .theme input {
-          padding-top: 40px; }
         .suggestions .suggestions-form form .theme .theme-label {
           line-height: 1.43;
           color: #848e99;
@@ -22019,6 +22017,18 @@ path {
         cursor: pointer; }
       .suggestions .suggestions-form form .form-arrow-down {
         transform: rotate(-90deg); }
+      .suggestions .suggestions-form form .placeholder {
+        display: none;
+        line-height: 1.43;
+        color: #848e99;
+        font-size: 14px;
+        position: absolute;
+        top: 10px;
+        left: 16px; }
+      .suggestions .suggestions-form form .tel-number .placeholder {
+        left: 31px; }
+      .suggestions .suggestions-form form .email .placeholder {
+        left: 31px; }
 
 .approved-error {
   position: absolute;
