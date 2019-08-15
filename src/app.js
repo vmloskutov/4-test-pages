@@ -270,29 +270,60 @@ dropdownButtonReg.onclick = () => {
 };
 
 function addingIcons(input, rule) {
-  input.addEventListener("change", () => {
+  input.addEventListener("keyup", () => {
+    if (input.value != "") {
     let parent = input.parentNode;
-    let icon = input.querySelector(".approved-error");
-    if (rule(input.value)) {
-      input.style.border = "solid 1px #71bc90";
-      if (icon != null) {
-        icon.src = 'src/img/icons/approved.svg';
+    let icon = parent.querySelector(".approved-error");
+      if (rule(input.value)) {
+        input.style.border = "solid 1px #71bc90";
+        if (icon != null) {
+          icon.style.display = "block";
+          icon.src = 'src/img/icons/approved.svg';
+        } else {
+          parent.insertAdjacentHTML('beforeend', "<img class='approved-error' src='src/img/icons/approved.svg' alt=''>" );
+        }
       } else {
-        parent.insertAdjacentHTML('beforeend', "<img class='approved-error' src='src/img/icons/approved.svg' alt=''>" );
+        input.style.border = "solid 1px #e53935";
+        if (icon != null) {
+          icon.style.display = "block";
+          icon.src = 'src/img/icons/error.svg';
+        } else {
+          parent.insertAdjacentHTML('beforeend', "<img class='approved-error' src='src/img/icons/error.svg' alt=''>" )
+        }
       }
+      input.addEventListener("blur", () => {
+        if (lastCheck(input, rule)) {
+          input.style.border = "solid 1px #71bc90";
+        } else {
+          input.style.border = "solid 1px #e53935";
+        }
+      });
+      input.addEventListener("focus", () => {
+        input.style.border = "solid 1px #62b0ff";
+      });
     } else {
-      input.style.border = "solid 1px #e53935";
-      if (icon != null) {
-        icon.src = 'src/img/icons/error.svg';
-      } else {
-        parent.insertAdjacentHTML('beforeend', "<img class='approved-error' src='src/img/icons/error.svg' alt=''>" )
-      }
+      input.style.border = "solid 1px #62b0ff";
+      let parent = input.parentNode;
+      let icon = parent.querySelector(".approved-error");
+      icon.style.display = "none";
+      input.addEventListener("blur", () => {
+          input.style.border = 0;
+      });
+      input.addEventListener("focus", () => {
+        input.style.border = "solid 1px #62b0ff";
+      });
     }
   });
+
 }
 
 function onlyLetters(myString) {
   return /^[a-zA-ZA-я ]+$/.test(myString);
+}
+
+function notEmpty(myString) {
+  if (myString != "")
+    return true;
 }
 
 function emailCheck(myString) {
@@ -301,5 +332,25 @@ function emailCheck(myString) {
 
 let email = document.suggestion.email;
 let name = document.suggestion.name;
+let message = document.suggestion.message;
+let formCheckbox = document.querySelector(".form-checkbox");
+
 addingIcons(name, onlyLetters);
 addingIcons(email, emailCheck);
+
+function lastCheck(input, rule) {
+  if (rule(input.value)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+let button = document.querySelector(".form-button");
+button.addEventListener("click", () => {
+  if (lastCheck(name, onlyLetters) && lastCheck(email, emailCheck) && lastCheck(message, notEmpty) && formCheckbox.checked) {
+    document.suggestion.submit();
+  } else {
+    alert(" Заполните форму правильно!")
+  }
+});
