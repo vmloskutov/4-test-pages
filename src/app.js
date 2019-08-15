@@ -330,13 +330,49 @@ function emailCheck(myString) {
   return /^([a-z0-9_А-я\.-]+)@([a-z0-9_А-я\.-]+)\.([a-zА-я\.]{2,6})$/.test(myString);
 }
 
+function telNumCheck(myString) {
+  return /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
+.test(myString);
+
+}
+
+let theme = document.suggestion.theme
 let email = document.suggestion.email;
 let name = document.suggestion.name;
 let message = document.suggestion.message;
+let telephone = document.suggestion.telephone;
 let formCheckbox = document.querySelector(".form-checkbox");
+let formButton = document.querySelector(".form-button");
+let inputs = [[theme, notEmpty], [telephone, telNumCheck], [name, onlyLetters], [email, emailCheck], [message, notEmpty]];
+
+inputs.forEach(item => {
+  item[0].addEventListener("change", () => {
+    let flag = true;
+    console.log(flag);
+    console.log(inputs);
+    for (let i = 0; i < inputs.length; i++) {
+      console.log("!!");
+      if (!lastCheck(inputs[i][0], inputs[i][1])) {
+        console.log("!!!");
+        flag = false;
+      }
+      console.log("!!!!");
+      console.log(flag);
+      if (flag === true && formCheckbox.checked) {
+        formButton.style.backgroundColor = "$main";
+      } else {
+        formButton.style.backgroundColor = "$silver";
+      }
+    }
+  });
+});
+
+
 
 addingIcons(name, onlyLetters);
 addingIcons(email, emailCheck);
+addingIcons(telephone, telNumCheck);
+addingIcons(theme, notEmpty);
 
 function lastCheck(input, rule) {
   if (rule(input.value)) {
@@ -348,7 +384,7 @@ function lastCheck(input, rule) {
 
 let button = document.querySelector(".form-button");
 button.addEventListener("click", () => {
-  if (lastCheck(name, onlyLetters) && lastCheck(email, emailCheck) && lastCheck(message, notEmpty) && formCheckbox.checked) {
+  if (lastCheck(name, onlyLetters) && lastCheck(email, emailCheck) && lastCheck(message, notEmpty) && formCheckbox.checked && lastCheck(telephone, telNumCheck) && lastCheck(theme, notEmpty)) {
     document.suggestion.submit();
   } else {
     alert(" Заполните форму правильно!")

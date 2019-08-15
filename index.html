@@ -2079,9 +2079,14 @@
             <img class="form-arrow-up"  src="src/img/icons/down.svg" alt="">
           </div>
           <div class="rest-form">
-            <div class="theme">
-              <input class="col-lg-12" type="text" value="Вопрос по набору данных - Сведения об охотничьих угодьях" required>
-              <div class="theme-label">Тема</div>
+            <div class="row">
+              <div class="col-lg-6 pl-0 theme">
+                <input class="col-lg-12" type="text" name="theme" value="Вопрос по набору данных" required>
+                <div class="theme-label">Тема</div>
+              </div>
+              <div class="col-lg-6 pr-0 tel-number">
+                <input class="col-lg-12" name="telephone" type="text" placeholder="Телефон" required>
+              </div>
             </div>
             <div class="row">
               <div class="col-lg-6 pl-0 name">
@@ -2093,7 +2098,7 @@
             </div>
             <textarea placeholder="Суть обращения" class="col-lg-12 message" name="message" required></textarea>
             <div class="">
-              <div class="row d-flex justify-content-end">
+              <div class="row d-flex justify-content-end mt-3">
                 <div class=" checkbox text-nowrap">
                     <label class="checkbox-group"> Я согласен<a class="rules"> с правилами </a>обращения граждан
                       <input class="form-checkbox" type="checkbox">
