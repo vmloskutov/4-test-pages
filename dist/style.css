@@ -22025,6 +22025,13 @@ path {
         position: absolute;
         top: 10px;
         left: 16px; }
+      .suggestions .suggestions-form form .hint {
+        margin-top: -24px;
+        margin-bottom: 9px;
+        display: none;
+        font-size: 12px;
+        line-height: 1.33;
+        color: #e53935; }
       .suggestions .suggestions-form form .tel-number .placeholder {
         left: 31px; }
       .suggestions .suggestions-form form .email .placeholder {

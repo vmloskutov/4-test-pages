@@ -1169,6 +1169,14 @@ path{
         top: 10px;
         left: 16px;
       }
+      .hint {
+        margin-top: -24px;
+        margin-bottom: 9px;
+        display: none;
+        font-size: 12px;
+        line-height: 1.33;
+        color: $error;
+      }
       .tel-number {
         .placeholder {
           left: 31px;

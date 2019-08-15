@@ -318,12 +318,12 @@ function addingIcons(input, rule) {
 }
 
 function onlyLetters(myString) {
-  return /^[[a-zA-ZA-я]+ ?]*/.test(myString);
+  return /^[[a-zA-ZA-я]+\s?]*$/.test(myString);
 }
 
 function notEmpty(myString) {
   //return /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/.test(myString);
-  return /^[\wА-я]+(\s+[\wА-я]+)*$/.test(myString);
+  return /^[\wА-я.]+(\s+[\wА-я.]+)*$/.test(myString);
 }
 
 function emailCheck(myString) {
@@ -383,7 +383,6 @@ for (let i = 0; i < temp-1; i++) {
   inputs[i][0].addEventListener("focus", () => {
     let parent = inputs[i][0].parentNode;
     let placeholder = parent.querySelector(".placeholder");
-    console.log(placeholder);
     oldPlaceholder = inputs[i][0].getAttribute("placeholder");
     inputs[i][0].setAttribute("placeholder", "");
     placeholder.style.display = "block";
@@ -392,10 +391,31 @@ for (let i = 0; i < temp-1; i++) {
   inputs[i][0].addEventListener("blur", () => {
     let parent = inputs[i][0].parentNode;
     let placeholder = parent.querySelector(".placeholder");
-    console.log(placeholder);
     inputs[i][0].setAttribute("placeholder", `${oldPlaceholder}`);
     placeholder.style.display = "none";
     inputs[i][0].style.paddingTop = "20px";
+  });
+};
+
+for (let i = 0; i < temp; i++) {
+  inputs[i][0].addEventListener("change", () => {
+    if (!lastCheck(inputs[i][0], inputs[i][1]) && inputs[i][0].value != "") {
+      let parent = inputs[i][0].parentNode;
+      let hint = parent.querySelector(".hint");
+      hint.style.display = "block";
+    } else {
+      hint.style.display = "none";
+    }
+  });
+};
+
+for (let i = 0; i < temp; i++) {
+  inputs[i][0].addEventListener("keyup", () => {
+    if (lastCheck(inputs[i][0], inputs[i][1])) {
+      let parent = inputs[i][0].parentNode;
+      let hint = parent.querySelector(".hint");
+      hint.style.display = "none";
+    }
   });
 };
 

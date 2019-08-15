@@ -2083,23 +2083,31 @@
               <div class="col-lg-6 pl-0 theme">
                 <input class="col-lg-12" type="text" name="theme" placeholder="Тема" required>
                 <div class="placeholder">Тема</div>
+                <div class="hint">Удалите лишние пробелы</div>
               </div>
               <div class="col-lg-6 pr-0 tel-number">
                 <input class="col-lg-12" name="telephone" type="text" placeholder="Телефон" required>
                 <div class="placeholder">Телефон</div>
+                <div class="hint">В поле не должно быть букв, минимум 7 символов</div>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 pl-0 name">
                 <input class="col-lg-12" name="name" type="text" placeholder="Имя" required>
                 <div class="placeholder">Имя</div>
+                <div class="hint">Используйте только буквы</div>
               </div>
               <div class="col-lg-6 pr-0 email">
                 <input class="col-lg-12" name="email" type="email" placeholder="E-mail" required>
                 <div class="placeholder">E-mail</div>
+                <div class="hint">Такой почты не существует</div>
               </div>
             </div>
-            <textarea placeholder="Суть обращения" class="col-lg-12 message" name="message" required></textarea>
+            <div class="message-area">
+              <textarea placeholder="Суть обращения" class="col-lg-12 message" name="message" required></textarea>
+              <div class="hint">Удалите лишние пробелы</div>
+            </div>
+
             <div class="">
               <div class="row d-flex justify-content-end mt-3">
                 <div class=" checkbox text-nowrap">
