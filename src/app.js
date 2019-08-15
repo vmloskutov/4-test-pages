@@ -322,8 +322,8 @@ function onlyLetters(myString) {
 }
 
 function notEmpty(myString) {
-  if (myString != "")
-    return true;
+  //return /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/.test(myString);
+  return /^[\wА-я]+(\s+[\wА-я]+)*$/.test(myString);
 }
 
 function emailCheck(myString) {
