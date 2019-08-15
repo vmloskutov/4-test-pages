@@ -318,7 +318,7 @@ function addingIcons(input, rule) {
 }
 
 function onlyLetters(myString) {
-  return /^[a-zA-ZA-я ]+$/.test(myString);
+  return /^[[a-zA-ZA-я]+ ?]*/.test(myString);
 }
 
 function notEmpty(myString) {
