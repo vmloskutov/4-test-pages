@@ -21940,6 +21940,10 @@ path {
           padding-right: 0; }
         .suggestions .suggestions-form form .email {
           padding-left: 0; }
+        .suggestions .suggestions-form form .theme {
+          padding-right: 0; }
+        .suggestions .suggestions-form form .tel-number {
+          padding-left: 0; }
         .suggestions .suggestions-form form .checkbox {
           margin-top: 0; } }
       .suggestions .suggestions-form form .form-label {

@@ -331,7 +331,7 @@ function emailCheck(myString) {
 }
 
 function telNumCheck(myString) {
-  return /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
+  return /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d{3}\-][\d{2}\-][\d{2}]$/
 .test(myString);
 
 }
@@ -344,6 +344,11 @@ let telephone = document.suggestion.telephone;
 let formCheckbox = document.querySelector(".form-checkbox");
 let formButton = document.querySelector(".form-button");
 let inputs = [[theme, notEmpty], [telephone, telNumCheck], [name, onlyLetters], [email, emailCheck], [message, notEmpty]];
+
+let maskOptions = {
+  mask: '{+7}(000)-000-00-00'
+};
+let mask = IMask(telephone, maskOptions);
 
 inputs.forEach(item => {
   item[0].addEventListener("keyup", () => {
