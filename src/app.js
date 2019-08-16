@@ -101,17 +101,14 @@ let regions = document.querySelector(".regions");
 let federal = document.querySelector(".federal");
 let radio = document.querySelectorAll("input[name=map]");
 
-let regionsJSON = JSON.parse(data);
-let federalJSON = JSON.parse(dataFed);
-console.log(regionsJSON);
 
 window.onload = function(){
   oblast.forEach(function(item) {
     item.style.fill= "#dde1e6";
   });
-  fillDropdownJSON(regionsJSON);
-  makeListHoverJSON(regionsJSON);
-  mouseFollowJSON(regionsJSON);
+  fillDropdownJSON(data.default);
+  makeListHoverJSON(data.default);
+  mouseFollowJSON(data.default);
 }
 oblast.forEach(function(item) {
   item.addEventListener("mouseover", function(event) {
@@ -129,17 +126,17 @@ radio.forEach(function(item){
           regions.style.display = "block";
           federal.style.display = "none";
           choise.innerHTML = "Выбрать регион";
-          fillDropdownJSON(regionsJSON);
-          makeListHoverJSON(regionsJSON);
-          mouseFollowJSON(regionsJSON);
+          fillDropdownJSON(data.default);
+          makeListHoverJSON(data.default);
+          mouseFollowJSON(data.default);
         }
         if (this.value === "1") {
           federal.style.display = "block";
           regions.style.display = "none";
           choise.innerHTML = "Выбрать округ";
-          fillDropdownJSON(federalJSON);
-          makeListHoverJSON(federalJSON);
-          mouseFollowJSON(federalJSON);
+          fillDropdownJSON(dataFed.default);
+          makeListHoverJSON(dataFed.default);
+          mouseFollowJSON(dataFed.default);
 
         }
       }
@@ -321,13 +318,7 @@ formArrow.onclick = () => {
 let dropdownButtonReg = document.querySelector('.dropdown-reg');
 dropdownButtonReg.onclick = () => {
       let a = document.getElementById('dropdown');
-      if ( a.style.display == 'none' ) {
-        a.style.display = 'block'
-      }
-      else
-        if ( a.style.display == 'block' ) {
-        a.style.display = 'none';
-        }
+      (a.style.display == "none") ? a.style.display = "block" : a.style.display = "none";
 };
 
 function addingIcons(input, rule) {
@@ -490,11 +481,7 @@ addingIcons(telephone, telNumCheck);
 addingIcons(theme, notEmpty);
 
 function lastCheck(input, rule) {
-  if (rule(input.value)) {
-    return true;
-  } else {
-    return false;
-  }
+  if (rule(input.value)) return true;
 }
 
 let button = document.querySelector(".form-button");
