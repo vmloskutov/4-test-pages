@@ -1,6 +1,7 @@
 import './app.scss';
 import 'bootstrap';
-
+import * as data from './json/data.json';
+import * as dataFed from './json/dataFed.json';
 
 let dropdown = document.getElementById("dropdown");
 /*let idArr = [
@@ -331,12 +332,12 @@ dropdownButtonReg.onclick = () => {
 
 function addingIcons(input, rule) {
   input.addEventListener("keyup", () => {
-    if (input.value != "") {
+    if (input.value !== "") {
     let parent = input.parentNode;
     let icon = parent.querySelector(".approved-error");
       if (rule(input.value)) {
         input.style.border = "solid 1px #71bc90";
-        if (icon != null) {
+        if (icon !== null) {
           icon.style.display = "block";
           icon.src = 'src/img/icons/approved.svg';
         } else {
@@ -344,7 +345,7 @@ function addingIcons(input, rule) {
         }
       } else {
         input.style.border = "solid 1px #e53935";
-        if (icon != null) {
+        if (icon !== null) {
           icon.style.display = "block";
           icon.src = 'src/img/icons/error.svg';
         } else {
@@ -463,7 +464,7 @@ for (let i = 0; i < temp-1; i++) {
 
 for (let i = 0; i < temp; i++) {
   inputs[i][0].addEventListener("change", () => {
-    if (!lastCheck(inputs[i][0], inputs[i][1]) && inputs[i][0].value != "") {
+    if (!lastCheck(inputs[i][0], inputs[i][1]) && inputs[i][0].value !== "") {
       let parent = inputs[i][0].parentNode;
       let hint = parent.querySelector(".hint");
       hint.style.display = "block";
