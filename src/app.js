@@ -1,7 +1,8 @@
 import './app.scss';
 import 'bootstrap';
-import * as data from './json/data.json';
-import * as dataFed from './json/dataFed.json';
+import {default as data} from './json/data.json';
+import {default as dataFed} from './json/dataFed.json';
+import Chart from 'chart.js';
 
 let dropdown = document.getElementById("dropdown");
 /*let idArr = [
@@ -106,9 +107,9 @@ window.onload = function(){
   oblast.forEach(function(item) {
     item.style.fill= "#dde1e6";
   });
-  fillDropdownJSON(data.default);
-  makeListHoverJSON(data.default);
-  mouseFollowJSON(data.default);
+  fillDropdownJSON(data);
+  makeListHoverJSON(data);
+  mouseFollowJSON(data);
 }
 oblast.forEach(function(item) {
   item.addEventListener("mouseover", function(event) {
@@ -126,17 +127,17 @@ radio.forEach(function(item){
           regions.style.display = "block";
           federal.style.display = "none";
           choise.innerHTML = "Выбрать регион";
-          fillDropdownJSON(data.default);
-          makeListHoverJSON(data.default);
-          mouseFollowJSON(data.default);
+          fillDropdownJSON(data);
+          makeListHoverJSON(data);
+          mouseFollowJSON(data);
         }
         if (this.value === "1") {
           federal.style.display = "block";
           regions.style.display = "none";
           choise.innerHTML = "Выбрать округ";
-          fillDropdownJSON(dataFed.default);
-          makeListHoverJSON(dataFed.default);
-          mouseFollowJSON(dataFed.default);
+          fillDropdownJSON(dataFed);
+          makeListHoverJSON(dataFed);
+          mouseFollowJSON(dataFed);
 
         }
       }
@@ -492,3 +493,86 @@ button.addEventListener("click", () => {
     alert(" Заполните форму правильно!")
   }
 });
+
+//ГРАФИКИ
+
+
+
+function renderChart(data, labels) {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var gradient = ctx.createLinearGradient(0, 0, 0, 500);
+    gradient.addColorStop(0, "#e2e9f9");
+    gradient.addColorStop(1, "#ffffff");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'This week',
+                data: data,
+                borderColor: '#0c49cd',
+                backgroundColor: gradient,
+            }]
+        },
+        options: {
+          tooltips: {
+            axis: 'x',
+            intersect: false,
+            displayColors: false,
+
+          },
+            scales: {
+              xAxes: [{
+                  ticks: {
+                      padding: 29,
+                      fontSize: 14,
+                      fontColor: "#848e99",
+                  },
+                  gridLines: {
+                      color: "#848e99",
+                      height: 20,
+                      display: false
+                  }
+              }],
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        stepSize: 20,
+                        padding: 29,
+                        fontSize: 14,
+                        fontColor: "#848e99",
+                        beginAtZero: true,
+                        callback: function (label, index, labels) {
+                              switch (label) {
+                                  case 0:
+                                      return '0%';
+                                  case 20:
+                                      return '20%';
+                                  case 40:
+                                      return '40%';
+                                  case 60:
+                                      return '60%';
+                                  case 80:
+                                      return '80%';
+                                  case 100:
+                                      return '100%';
+                              }
+                          }
+                        },
+                    gridLines: {
+                      drawBorder: false,
+                      display: false
+                    }
+                }]
+            }
+        },
+    });
+}
+
+window.addEventListener("load", () => {
+        let data = [60, 40, 20, 80, 60, 20, 100];
+        let labels =  ["2011", "2012", "2013", "2014", "2015", "2016", "2017"];
+        renderChart(data, labels);
+    }
+);

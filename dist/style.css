@@ -22046,3 +22046,10 @@ path {
   top: 20px;
   right: 20px;
   transform: rotate(90deg); }
+
+.charts {
+  margin-top: 100px; }
+  .charts .card {
+    padding-left: 32px;
+    padding-top: 32px;
+    padding-bottom: 25px; }

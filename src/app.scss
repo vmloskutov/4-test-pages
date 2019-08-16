@@ -1203,3 +1203,12 @@ path{
   right: 20px;
   transform: rotate(90deg);
 }
+
+.charts {
+  margin-top: 100px;
+  .card {
+    padding-left: 32px;
+    padding-top: 32px;
+    padding-bottom: 25px;
+  }
+}
