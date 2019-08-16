@@ -3,7 +3,7 @@ import 'bootstrap';
 
 
 let dropdown = document.getElementById("dropdown");
-let idArr = [
+/*let idArr = [
   ["RU-MOW",  "Москва"],
   ["RU-CHE", "Челябинская область"],
   ["RU-ORL",  "Орловская область"],
@@ -90,8 +90,8 @@ let idArr = [
   ["RU-NEN",  "Ненецскй АО"],
   ["RU-STA",  "Ставропольский край"],
   ["RU-TUL",  "Тульская область"]
-];
-let idArrFed = [["Central", "Центральный"], ["Northwestern", "Северо-Западный"], ["Southern-1", "Южный"], ["path5292", "Северо-Кавказский"], ["Volga", "Приволжский"], ["Urals", "Уральский"], ["Siberia", "Сибирский"], ["Far_Eastern", "Дальневосточный"]];
+];*/
+/*let idArrFed = [["Central", "Центральный"], ["Northwestern", "Северо-Западный"], ["Southern-1", "Южный"], ["path5292", "Северо-Кавказский"], ["Volga", "Приволжский"], ["Urals", "Уральский"], ["Siberia", "Сибирский"], ["Far_Eastern", "Дальневосточный"]];*/
 let oblast = document.querySelectorAll("path");
 let description = document.querySelector(".description");
 let enabled = document.querySelectorAll(".enabled");
@@ -101,15 +101,16 @@ let federal = document.querySelector(".federal");
 let radio = document.querySelectorAll("input[name=map]");
 
 let regionsJSON = JSON.parse(data);
+let federalJSON = JSON.parse(dataFed);
 console.log(regionsJSON);
 
 window.onload = function(){
   oblast.forEach(function(item) {
     item.style.fill= "#dde1e6";
   });
-  fillDropdownReg();
-  makeListHover(idArr);
-  mouseFollow(idArr);
+  fillDropdownJSON(regionsJSON);
+  makeListHoverJSON(regionsJSON);
+  mouseFollowJSON(regionsJSON);
 }
 oblast.forEach(function(item) {
   item.addEventListener("mouseover", function(event) {
@@ -127,17 +128,17 @@ radio.forEach(function(item){
           regions.style.display = "block";
           federal.style.display = "none";
           choise.innerHTML = "Выбрать регион";
-          fillDropdownReg();
-          makeListHover(idArr);
-          mouseFollow(idArr);
+          fillDropdownJSON(regionsJSON);
+          makeListHoverJSON(regionsJSON);
+          mouseFollowJSON(regionsJSON);
         }
         if (this.value === "1") {
           federal.style.display = "block";
           regions.style.display = "none";
           choise.innerHTML = "Выбрать округ";
-          fillDropdownFed();
-          makeListHover(idArrFed);
-          mouseFollow(idArrFed);
+          fillDropdownJSON(federalJSON);
+          makeListHoverJSON(federalJSON);
+          mouseFollowJSON(federalJSON);
 
         }
       }
@@ -155,6 +156,13 @@ function fillDropdownReg() {
   dropdown.innerHTML = "";
   for (let i = 0; i < idArr.length; i++) {
     dropdown.insertAdjacentHTML('beforeend', `<li class=""><a href="#" class="list">${idArr[i][1]}<hr></a></li>`);
+  }
+}
+
+function fillDropdownJSON(data) {
+  dropdown.innerHTML = "";
+  for (let key in data) {
+    dropdown.insertAdjacentHTML('beforeend', `<li class=""><a href="#" class="list">${data[key]}<hr></a></li>`);
   }
 }
 
@@ -187,6 +195,35 @@ function makeListHover(arr) {
   });
 }
 
+function makeListHoverJSON(data) {
+  let list = document.querySelectorAll(".list");
+  list.forEach( function(item) {
+    item.onmouseover = function () {
+      for (let key in data) {
+        if (this.innerHTML.slice(0, -4) === data[key]) {
+          let selected = document.getElementById(key);
+          description.classList.add('active');
+          description.innerHTML = this.innerHTML.slice(0, -4);
+          selected.style.fill="#ffffff"
+          let centerX = selected.getBoundingClientRect().left + selected.getBoundingClientRect().width / 2 - description.getBoundingClientRect().width / 2;
+          let centerY = selected.getBoundingClientRect().top - description.getBoundingClientRect().height - 10;
+          description.style.left = centerX + "px";
+          description.style.top = centerY + "px";
+        }
+      }
+    };
+    item.onmouseout = function() {
+      for (let key in data) {
+        if (this.innerHTML.slice(0, -4) === data[key]) {
+          let selected = document.getElementById(key);
+          description.classList.remove('active');
+          selected.style.fill="#dde1e6"
+        }
+    }
+  };
+  });
+}
+
 function mouseFollow(arr) {
   for (let i = 0; i < arr.length; i++) {
     let area = document.getElementById(arr[i][0]);
@@ -199,6 +236,25 @@ function mouseFollow(arr) {
       });
       description.classList.add('active');
       description.innerHTML = arr[i][1];
+    });
+    area.addEventListener("mouseout", function() {
+      description.classList.remove("active");
+    });
+  };
+}
+
+function mouseFollowJSON(data) {
+  for (let key in data) {
+    let area = document.getElementById(key);
+    area.addEventListener("mouseover", function () {
+      area.addEventListener('mousemove', function(e){
+        let x = e.pageX - description.getBoundingClientRect().width / 2;
+        description.style.left = x + "px";
+        let y = e.pageY - 70
+        description.style.top = y + "px";
+      });
+      description.classList.add('active');
+      description.innerHTML = data[key];
     });
     area.addEventListener("mouseout", function() {
       description.classList.remove("active");
