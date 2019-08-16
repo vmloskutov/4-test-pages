@@ -1,6 +1,7 @@
 import './app.scss';
 import 'bootstrap';
 
+
 let dropdown = document.getElementById("dropdown");
 let idArr = [
   ["RU-MOW",  "Москва"],
@@ -98,6 +99,9 @@ let choise = document.querySelector(".choise");
 let regions = document.querySelector(".regions");
 let federal = document.querySelector(".federal");
 let radio = document.querySelectorAll("input[name=map]");
+
+let regionsJSON = JSON.parse(data);
+console.log(regionsJSON);
 
 window.onload = function(){
   oblast.forEach(function(item) {
