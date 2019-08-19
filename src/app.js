@@ -558,8 +558,22 @@ cardArr.forEach(item => {
   });
 });
 
-let chartData = [60, 40, 20, 80, 60, 20, 100, 40, 60];
-let labels =  ["10-02-2010", "11-03-2011", "12-04-2012", "13-05-2013", "14-06-2014", "15-07-2015", "16-08-2016", "17-09-2017"];
+
+//let chartData = [60, 40, 20, 80, 60, 20, 100, 40, 60];
+let chartData = []
+for (let i = 0; i < 32; i++) {
+  chartData.push(Math.round(Math.random() * 100));
+}
+let startDate = moment("2010-01-01");
+let datesForChart = [];
+datesForChart.push(startDate.format("YYYY"));
+for (let i = 1; i < 32; i++) {
+  console.log(moment(startDate).add(3, 'month'));
+  startDate = moment(startDate).add(3, 'month');
+  datesForChart.push(startDate.format("YYYY"));
+}
+
+//let labels =  ["10-02-2010", "11-03-2011", "12-04-2012", "13-05-2013", "14-06-2014", "15-07-2015", "16-08-2016", d.format("YYYY")];
 
 
 
@@ -571,9 +585,9 @@ gradient.addColorStop(1, "#ffffff");
 var myChart = new Chart(ctx, {
     type: 'MyLine',
     data: {
-        labels: labels,
+        labels: datesForChart,
         datasets: [{
-            label: 'This week',
+            label: 'percent',
             data: chartData,
             borderColor: '#0c49cd',
             backgroundColor: gradient,
@@ -608,6 +622,10 @@ var myChart = new Chart(ctx, {
                   color: "#848e99",
                   height: 20,
                   display: false
+              },
+              callback: function (label, index, labels) {
+                console.log("!!!");
+                  return moment(label).format("YYYY");
               }
           }],
             yAxes: [{
