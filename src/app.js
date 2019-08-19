@@ -3,6 +3,8 @@ import 'bootstrap';
 import {default as data} from './json/data.json';
 import {default as dataFed} from './json/dataFed.json';
 import Chart from 'chart.js';
+var moment = require('moment');
+moment().format();
 
 let dropdown = document.getElementById("dropdown");
 /*let idArr = [
@@ -496,6 +498,54 @@ button.addEventListener("click", () => {
 
 //ГРАФИКИ
 
+Chart.defaults.MyLine = Chart.defaults.line;
+Chart.controllers.MyLine = Chart.controllers.line.extend({
+   draw: function(ease) {
+      Chart.controllers.line.prototype.draw.call(this, ease);
+      if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+         let activePoint = this.chart.tooltip._active[0],
+             ctx = this.chart.ctx,
+             x = activePoint.tooltipPosition().x,
+             y = activePoint.tooltipPosition().y,
+             topY = this.chart.scales['y-axis-0'].top,
+             bottomY = this.chart.scales['y-axis-0'].bottom;
+         ctx.save();
+         ctx.beginPath();
+         ctx.moveTo(x, topY);
+         ctx.lineTo(x, y - 6);
+         ctx.moveTo(x, y + 6);
+         ctx.lineTo(x, bottomY);
+         ctx.setLineDash([1, 1]);
+         ctx.lineWidth = 1;
+         ctx.strokeStyle = '#0d49cc';
+         ctx.stroke();
+         ctx.restore();
+         ctx.save();
+         ctx.beginPath();
+         ctx.arc(x, y, 6, 0, 2 * Math.PI);
+         ctx.lineWidth = 2;
+         ctx.strokeStyle = '#0d49cc';
+         ctx.fillStyle ="#fff";
+         ctx.fill();
+         ctx.stroke();
+         ctx.restore();
+      }
+   }
+});
+
+Chart.Tooltip.positioners.custom = function(elements, eventPosition) {
+  var tooltip = this;
+  return {
+    x: eventPosition.x,
+    y: elements[0]._chart.height
+  };
+}
+
+function updateChart(chart) {
+    for (let i=0; i < chartData.length; i++){
+    chart.data.datasets[0].data[i] = Math.round(Math.random() * 100)}
+    chart.update();
+}
 
 let cardArr = document.querySelectorAll(".card");
 
@@ -504,95 +554,93 @@ cardArr.forEach(item => {
     let chosen = document.querySelector(".chosen");
     chosen.classList.remove("chosen");
     e.target.closest(".card").classList.add("chosen");
+    updateChart(myChart)
   });
 });
 
+let chartData = [60, 40, 20, 80, 60, 20, 100, 40, 60];
+let labels =  ["10-02-2010", "11-03-2011", "12-04-2012", "13-05-2013", "14-06-2014", "15-07-2015", "16-08-2016", "17-09-2017"];
 
-function renderChart(data, labels) {
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var gradient = ctx.createLinearGradient(0, 0, 0, 500);
-    gradient.addColorStop(0, "#e2e9f9");
-    gradient.addColorStop(1, "#ffffff");
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'This week',
-                data: data,
-                borderColor: '#0c49cd',
-                backgroundColor: gradient,
-            }]
+
+
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var gradient = ctx.createLinearGradient(0, 0, 0, 500);
+gradient.addColorStop(0, "#e2e9f9");
+gradient.addColorStop(1, "#ffffff");
+var myChart = new Chart(ctx, {
+    type: 'MyLine',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'This week',
+            data: chartData,
+            borderColor: '#0c49cd',
+            backgroundColor: gradient,
+            pointRadius: 0,
+        }]
+    },
+    options: {
+      elements: {
+          line: {
+            tension: 0
+          }
         },
-        options: {
-          elements: {
-              line: {
-                tension: 0
+      legend: {
+         display: false,
+       },
+      tooltips: {
+        axis: 'x',
+        intersect: false,
+        displayColors: false,
+
+      },
+        scales: {
+          xAxes: [{
+              ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 8,
+                  padding: 29,
+                  fontSize: 14,
+                  fontColor: "#848e99",
+              },
+              gridLines: {
+                  color: "#848e99",
+                  height: 20,
+                  display: false
               }
-            },
-          legend: {
-             display: false,
-           },
-          tooltips: {
-            axis: 'x',
-            intersect: false,
-            displayColors: false,
-
-          },
-            scales: {
-              xAxes: [{
-                  ticks: {
-                      autoSkip: true,
-                      maxTicksLimit: 8,
-                      padding: 29,
-                      fontSize: 14,
-                      fontColor: "#848e99",
-                  },
-                  gridLines: {
-                      color: "#848e99",
-                      height: 20,
-                      display: false
-                  }
-              }],
-                yAxes: [{
-                    ticks: {
-                        min: 0,
-                        max: 100,
-                        stepSize: 20,
-                        padding: 29,
-                        fontSize: 14,
-                        fontColor: "#848e99",
-                        beginAtZero: true,
-                        callback: function (label, index, labels) {
-                              switch (label) {
-                                  case 0:
-                                      return '0%';
-                                  case 20:
-                                      return '20%';
-                                  case 40:
-                                      return '40%';
-                                  case 60:
-                                      return '60%';
-                                  case 80:
-                                      return '80%';
-                                  case 100:
-                                      return '100%';
-                              }
+          }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 100,
+                    stepSize: 20,
+                    padding: 29,
+                    fontSize: 14,
+                    fontColor: "#848e99",
+                    beginAtZero: true,
+                    callback: function (label, index, labels) {
+                          switch (label) {
+                              case 0:
+                                  return '0%';
+                              case 20:
+                                  return '20%';
+                              case 40:
+                                  return '40%';
+                              case 60:
+                                  return '60%';
+                              case 80:
+                                  return '80%';
+                              case 100:
+                                  return '100%';
                           }
-                        },
-                    gridLines: {
-                      drawBorder: false,
-                      display: false
-                    }
-                }]
-            }
-        },
-    });
-}
-
-window.addEventListener("load", () => {
-        let data = [60, 40, 20, 80, 60, 20, 100, 40];
-        let labels =  ["2011", "2012", "2013", "2014", "2015", "2016", "2017"];
-        renderChart(data, labels);
-    }
-);
+                      }
+                    },
+                gridLines: {
+                  drawBorder: false,
+                  display: false
+                }
+            }]
+        }
+    },
+});
