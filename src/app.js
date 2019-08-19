@@ -497,6 +497,16 @@ button.addEventListener("click", () => {
 //ГРАФИКИ
 
 
+let cardArr = document.querySelectorAll(".card");
+
+cardArr.forEach(item => {
+  item.addEventListener("click", (e) => {
+    let chosen = document.querySelector(".chosen");
+    chosen.classList.remove("chosen");
+    e.target.closest(".card").classList.add("chosen");
+  });
+});
+
 
 function renderChart(data, labels) {
     var ctx = document.getElementById("myChart").getContext('2d');
@@ -515,6 +525,14 @@ function renderChart(data, labels) {
             }]
         },
         options: {
+          elements: {
+              line: {
+                tension: 0
+              }
+            },
+          legend: {
+             display: false,
+           },
           tooltips: {
             axis: 'x',
             intersect: false,
@@ -524,6 +542,8 @@ function renderChart(data, labels) {
             scales: {
               xAxes: [{
                   ticks: {
+                      autoSkip: true,
+                      maxTicksLimit: 8,
                       padding: 29,
                       fontSize: 14,
                       fontColor: "#848e99",
@@ -571,7 +591,7 @@ function renderChart(data, labels) {
 }
 
 window.addEventListener("load", () => {
-        let data = [60, 40, 20, 80, 60, 20, 100];
+        let data = [60, 40, 20, 80, 60, 20, 100, 40];
         let labels =  ["2011", "2012", "2013", "2014", "2015", "2016", "2017"];
         renderChart(data, labels);
     }

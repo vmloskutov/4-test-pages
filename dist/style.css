@@ -21449,7 +21449,7 @@ h6 {
     padding-inline-start: 0; } }
 
 @media (min-width: 993px) {
-  .current {
+  .device .current {
     padding-bottom: 10px;
     border-bottom: 2px solid #0c49cd; } }
 
@@ -22050,6 +22050,46 @@ path {
 .charts {
   margin-top: 100px; }
   .charts .card {
+    background-color: #f4f7fb;
     padding-left: 32px;
     padding-top: 32px;
     padding-bottom: 25px; }
+  .charts .section-label {
+    padding-bottom: 0; }
+  .charts .card-row {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 33px; }
+  .charts .left-card {
+    border-radius: 4px 0 0 4px; }
+  .charts .right-card {
+    border-radius: 0 4px 4px 0; }
+  .charts .middle-card {
+    border-radius: 0; }
+  .charts .row-top {
+    color: #848e99;
+    align-items: flex-start;
+    font-size: 16px;
+    line-height: 1.5; }
+  .charts .statistics {
+    font-size: 48px;
+    line-height: 1.17; }
+    .charts .statistics .small {
+      line-height: 1.78;
+      font-size: 18px; }
+  .charts .chosen {
+    background-color: #ffffff;
+    border-bottom: 4px solid #0c49cd; }
+  .charts .full-statistics {
+    margin-top: 27px;
+    margin-bottom: 100px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    border: solid 1px #dde1e6;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 1.44;
+    color: #3b4256; }

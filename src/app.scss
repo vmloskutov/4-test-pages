@@ -455,9 +455,11 @@ h6 {
 }
 
 @media (min-width: 993px) {
-  .current {
-    padding-bottom: 10px;
-    border-bottom: 2px solid $main;
+  .device {
+    .current {
+      padding-bottom: 10px;
+      border-bottom: 2px solid $main;
+    }
   }
 }
 
@@ -1197,6 +1199,8 @@ path{
   }
 }
 
+
+
 .approved-error {
   position: absolute;
   top: 20px;
@@ -1207,8 +1211,58 @@ path{
 .charts {
   margin-top: 100px;
   .card {
+    background-color: $yourHighness;
     padding-left: 32px;
     padding-top: 32px;
     padding-bottom: 25px;
+  }
+  .section-label {
+    padding-bottom: 0;
+  }
+  .card-row {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 33px;
+  }
+  .left-card {
+    border-radius: 4px 0 0 4px;
+  }
+  .right-card {
+    border-radius: 0 4px 4px 0;
+  }
+  .middle-card {
+    border-radius: 0;
+  }
+  .row-top {
+    color: $darkGray;
+    align-items: flex-start;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .statistics {
+    font-size: 48px;
+    line-height: 1.17;
+    .small {
+      line-height: 1.78;
+      font-size: 18px;
+    }
+  }
+  .chosen {
+    background-color: $white;
+    border-bottom: 4px solid $main;
+  }
+  .full-statistics{
+    margin-top: 27px;
+    margin-bottom: 100px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    border: solid 1px $silver;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 1.44;
+    color: $ink;
   }
 }
